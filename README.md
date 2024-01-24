@@ -1,8 +1,8 @@
 # ESP32-PowerGuard - Digitalization in Energy Engineering
 
-This repository contains the source code for our university group project focused on digitalizing energy engineering in the industrial sector. Our project aims to retrofit mobile robots with capable mini PCs while addressing a critical issue—two PC failures due to a faulty power converter. Collaborating with the electrical engineering department, we are identifying and mitigating faults.
+This repository contains the source code for our university group project focused on digitalizing energy engineering in the industrial sector. Our project aims to ensure save power distribution for retrofit mobile robots with capable mini PCs. This led to a little project using ESP32 and some relay boards.
 
-Key Features:
+### Key Features:
 
     ESP32-based power monitoring for voltage and consumption.
     Integration of 2 relay boards to prevent unforeseen voltage conditions.
@@ -10,10 +10,17 @@ Key Features:
     Grafana dashboard for visualizing power conditions.
     Embedded webserver on ESP32 for real-time voltage and power readings and relay control.
 
-How to Use:
-[Include brief instructions on setting up and using your project.]
+### How to Use:
+Hardware needed:
+- ESP32 Devkit C (or derivative)
+- Relay Module board with 2x Relays
+- INA219 Power Monitoring Module
+- Computer/Server for hosting the Database and Grafana.
 
-License:
+The code was written using the PlatformIO plugin for Visual Studio Code. Your are advised to use the same setup.
+
+
+### License:
 MIT License
 
 Explore the code, contribute, and provide feedback.
