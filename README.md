@@ -93,7 +93,7 @@ Also, the ESP should now be able to send data to the database. Now the data shou
 ![Grafana Dashboard](resources/dashboard.png)
 
 ##### Webserver
-![ESP32 Webserver](resources/webserver.png)
+![ESP32 Webserver](resources/webserver.png){ width=30% } 
 
 
 Explore the code, contribute, and provide feedback.
