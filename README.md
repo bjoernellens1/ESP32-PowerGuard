@@ -89,8 +89,10 @@ Now you can click on the upload button to flash the ESP.
 Use the serial monitor to see the output of the ESP. You will see the IP address of the ESP. You can now access the webserver at `http://<ESP_IP>:80`.
 Also, the ESP should now be able to send data to the database. Now the data should appear in the database and you should be greeted be able to configure these views:
 
+##### Grafana
 ![Grafana Dashboard](resources/dashboard.png)
-![InfluxDB Data](resources/influxdb.jpeg)
+
+##### Webserver
 ![ESP32 Webserver](resources/webserver.png)
 
 
