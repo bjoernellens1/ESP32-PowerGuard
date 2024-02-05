@@ -97,3 +97,5 @@ Also, the ESP should now be able to send data to the database. Now the data shou
 
 
 Explore the code, contribute, and provide feedback.
+
+At this point I want to thank my project-buddies Yiuliya Varsh and Cyrus Emami for their support and help.
