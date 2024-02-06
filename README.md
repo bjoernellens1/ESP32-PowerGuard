@@ -20,7 +20,7 @@ This repository contains the source code for our university group project focuse
 2. Open this folder with Visual Studio Code and install the PlatformIO plugin.
 3. Rename `secrets.h.example` to `secrets.h` and fill in your credentials.
 4. Flash ESP32 with the code. Connect the INA219 module according to the schematics and power up the ESP32.
-5. The ESP32 will connect to your WiFi and start sending data to the InfluxDB. InfluxDB webgui is available at [http://localhost:8087](http://localhost:8087). You can now start the Grafana dashboard and connect it to the InfluxDB. The Grafana dashboard is available at [http://localhost:3002](http://localhost:3002).
+5. The ESP32 will connect to your WiFi and start sending data to the InfluxDB. InfluxDB webgui is available at [http://localhost:8086](http://localhost:8086). You can now start the Grafana dashboard and connect it to the InfluxDB. The Grafana dashboard is available at [http://localhost:3000](http://localhost:3000).
 6. Control the ESP32 via the webserver at `http://<ESP_IP>:80`.
    You can obtain the ESP32 IP address from the serial console.
 
@@ -46,6 +46,7 @@ git clone https://github.com/bjoernellens1/ESP32-PowerGuard.git
 ### Setup your services
 Install the latest version of Docker and Docker Compose:
     [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+
 Start the services via:
 ```shell
 docker compose up -d
@@ -53,9 +54,9 @@ docker compose up -d
 
 Now you can access Grafana and InfluxDB via the webgui.
 
-The Grafana dashboard is available at [http://localhost:3002](http://localhost:3002).
+The Grafana dashboard is available at [http://localhost:3000](http://localhost:3000).
 
-InfluxDB webgui is available at [http://localhost:8087](http://localhost:8087).
+InfluxDB webgui is available at [http://localhost:8086](http://localhost:8086).
 
 Having the services running, it is time to start the setup wizard in InfluxDB. Login with username 'influxUser' and password 'influxUserPW' .
 On the welcome page you will see the Ardino setup tutorial. Click on the 'Arduino' button and follow the instructions. Here you will obtain parameters needed in the next step.
@@ -73,10 +74,10 @@ Open this folder in Visual Studio Code. The PlatformIO welcome page will open au
 
 Then you need to change some files to include your configuration:
 
-Rename `secrets.h.example` to `secrets.h` and fill in your credentials. INFLUXDB_TOKEN is the token you obtained in the previous step. INFLUXDB_ORG is the organization name you chose. INFLUXDB_BUCKET is the bucket name you chose. INFLUXDB_URL is the URL of your InfluxDB instance. In our case we are hosting it locally, so we need to fill in the PCs IP Adress followed by the InfluxDB port, for instance:
+Rename `secrets.h.example` to `secrets.h` and fill in your credentials. INFLUXDB_TOKEN is the token you obtained in the previous step. INFLUXDB_ORG is the organization name you chose. INFLUXDB_BUCKET is the bucket name you chose. INFLUXDB_URL is the URL of your InfluxDB instance. In our case we are hosting it locally, so we need to fill in the PC's IP Adress followed by the InfluxDB port, for instance:
 
 ```
-INFLUXDB_URL = "http://192.168.1.100:8087"
+INFLUXDB_URL = "http://192.168.1.100:8086"
 ```
 
  WIFI_SSID and WIFI_PASS are your WiFi credentials.
@@ -87,13 +88,20 @@ Now you can click on the upload button to flash the ESP.
 ![Upload Button](resources/upload.png)
 
 Use the serial monitor to see the output of the ESP. You will see the IP address of the ESP. You can now access the webserver at `http://<ESP_IP>:80`.
-Also, the ESP should now be able to send data to the database. Now the data should appear in the database and you should be greeted be able to configure these views:
+Also, the ESP should now be able to send data to the database. Now the data should appear in the database. For your convenience, the Grafana dashboard was preconfigured in the config/grafana directory so you should already see this:
 
 ##### Grafana
 ![Grafana Dashboard](resources/dashboard.png)
 
 ##### Webserver
 <img src="resources/webserver.png" alt="ESP32 Webserver" title="ESP32 Webserver" width="350" />
+
+### Further information
+For more information check out these links:
+
+    https://grafana.com/
+
+    https://www.influxdata.com/
 
 
 Explore the code, contribute, and provide feedback.

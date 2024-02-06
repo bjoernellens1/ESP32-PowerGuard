@@ -5,16 +5,16 @@ services:
     container_name: influxdb-test
     image: influxdb:2.7.1-alpine
     ports:
-      - '8087:8086' # InfluxDB wird am Server unter Port 8087 bereitgestellt.
+      - '8086:8086' # InfluxDB wird am Server unter Port 8086 bereitgestellt.
     volumes:
       - influxdb-data:/var/lib/influxdb2 # Docker Volume: Hier werden die Daten permanent gespeichert.
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=influxUser
-      - DOCKER_INFLUXDB_INIT_PASSWORD=influxUserPW # Sollte geaendert werden.
+      - DOCKER_INFLUXDB_INIT_USERNAME=influxuser
+      - DOCKER_INFLUXDB_INIT_PASSWORD=influxpw # Sollte geaendert werden.
       - DOCKER_INFLUXDB_INIT_ORG=org-uni
       - DOCKER_INFLUXDB_INIT_BUCKET=bucket-digitalisierung
-      - DOCKER_INFLUXDB_INIT_RETENTION=1w  # (optional) data retention: Wann werden Daten geloescht?
+      #- DOCKER_INFLUXDB_INIT_RETENTION=1w  # (optional) data retention: Wann werden Daten geloescht?
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=8gs8r6ZZp@%EGnR@xRpJ@d4sH2M%5m8#  # (optional) admin-token definieren (sollte geaendert werden).
     restart: unless-stopped
 
@@ -25,17 +25,17 @@ services:
     depends_on:
       - influxdb
     environment:
-      - GF_SECURITY_ADMIN_USER=gfUser
-      - GF_SECURITY_ADMIN_PASSWORD=gfUserPW # Sollte geaendert werden.
+      - GF_SECURITY_ADMIN_USER=gfuser
+      - GF_SECURITY_ADMIN_PASSWORD=gfpw # Sollte geaendert werden.
       - GF_INSTALL_PLUGINS=
-      - GF_SERVER_ROOT_URL="https://gf.bjoernellens1.com" # Dashboard derzeit unter dieser Subdomain erreichbar.
-      - GF_SERVER_DOMAIN=gf.bjoernellens1.com
     links:
       - influxdb
     ports:
-      - '3002:3000' # Grafana wird am Server unter Port 3002 bereitgestellt.
+      - '3000:3000' # Grafana wird am Server unter Port 3000 bereitgestellt.
     volumes:
       - grafana_data:/var/lib/grafana # Docker Volume: Hier werden die Daten permanent gespeichert.
+      - ./config/grafana:/etc/grafana/provisioning/
+      - ./config/grafana/dashboards/dashboard.json:/usr/share/grafana/public/dashboards/home.json
 
 volumes: # Die Docker Volumes muessen hier definiert werden, werden dann automatisch mit dem Stack erstellt.
   grafana_data: {}
