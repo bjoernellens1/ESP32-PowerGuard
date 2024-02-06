@@ -64,7 +64,8 @@ On the welcome page you will see the Ardino setup tutorial. Click on the 'Arduin
 ### Setup ESP32
 #### Hardware Setup
 Connect the INA219 module according to the schematics. 
-Connect the relay module to the ESP32. The relay module should be connected to the pins 26 and 27 of the ESP32. The relay module should be powered by an external power supply. The relay module should be connected to the power circuit you want to monitor and control. The INA219 module should be connected to the power circuit you want to monitor. The INA219 module should be powered by the ESP32.
+Connect the relay module to the ESP32. The relay module should be connected to the pins GPIO2 and GPIO15 of the ESP32. The relay module should be powered by an external power supply. The relay module should be connected to the power circuit you want to monitor and control. The INA219 module should be connected to the power circuit you want to monitor. The INA219 module should be powered by the ESP32.
+![Pinout Diagram ESP32 Devkit C v4](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_images/esp32-devkitC-v4-pinout.png)
 ![Schematics - Wiring](resources/wiring.png)
 
 
@@ -99,9 +100,9 @@ Also, the ESP should now be able to send data to the database. Now the data shou
 ### Further information
 For more information check out these links:
 
-    https://grafana.com/
+[https://grafana.com/](https://grafana.com/)
 
-    https://www.influxdata.com/
+[https://www.influxdata.com/](https://www.influxdata.com/)
 
 
 Explore the code, contribute, and provide feedback.
