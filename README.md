@@ -100,9 +100,13 @@ Also, the ESP should now be able to send data to the database. Now the data shou
 ### Further information
 For more information check out these links:
 
-[https://grafana.com/](https://grafana.com/)
+[Grafana](https://grafana.com/)
 
-[https://www.influxdata.com/](https://www.influxdata.com/)
+[InfluxDB](https://www.influxdata.com/)
+
+[PlatformIO](https://platformio.org/)
+
+[Visual Studio Code](https://code.visualstudio.com/)
 
 
 Explore the code, contribute, and provide feedback.
