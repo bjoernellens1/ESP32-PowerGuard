@@ -9,13 +9,17 @@
 
 class WebServerModule {
 public:
-    WebServerModule(INA219Module& inaModule, int relayPin, int secondRelayPin);
+    WebServerModule(INA219Module& inaModule, int relayPin, int secondRelayPin, int thirdRelayPin, int fourthRelayPin);
 
   void begin();
   bool getRelayState() const;
   bool getSecondRelayState() const;
+  bool getThirdRelayState() const;
+  bool getFourthRelayState() const;
   void handleToggleState(bool state);
   void handleSecondToggleState(bool state);
+  void handleThirdToggleState(bool state);
+  void handleFourthToggleState(bool state);
   
 private:
   INA219Module& _inaModule;
@@ -23,13 +27,19 @@ private:
 
   bool relayState;
   bool secondRelayState;
+  bool thirdrelayState;
+  bool fourthRelayState;
   int _relayPin;
   int _secondRelayPin;
+  int _thirdrelayPin;
+  int _fourthRelayPin;
   
   void handleRoot(AsyncWebServerRequest *request);
   void handleValues(AsyncWebServerRequest *request);
   void handleToggle(AsyncWebServerRequest *request);
   void handleSecondToggle(AsyncWebServerRequest *request);
+  void handleThirdToggle(AsyncWebServerRequest *request);
+  void handleFourthToggle(AsyncWebServerRequest *request);
 };
 
 #endif

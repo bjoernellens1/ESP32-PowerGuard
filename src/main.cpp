@@ -18,7 +18,7 @@
 WiFiModule wifiModule(WIFI_SSID, WIFI_PASSWORD);
 INA219Module inaModule;
 InfluxDBModule influxDB(INFLUXDB_URL, INFLUXDB_ORG, INFLUXDB_BUCKET, INFLUXDB_TOKEN);
-WebServerModule webServer(inaModule, RELAY_PIN, SECOND_RELAY_PIN);
+WebServerModule webServer(inaModule, RELAY_PIN, SECOND_RELAY_PIN, THIRD_RELAY_PIN, FOURTH_RELAY_PIN);
 
 void readAndSendSensorData();
 void controlRelays();
@@ -106,7 +106,7 @@ void controlRelays() {
 
     // Zentrale Logik für die Relaissteuerung
     if (power > 70.0) {
-        Serial.println("Turning on relays...");
+        Serial.println("Overload condition detected...");
         webServer.handleToggleState(false);  // Relay 1 ausschalten
         webServer.handleSecondToggleState(false);  // Relay 2 ausschalten
     }

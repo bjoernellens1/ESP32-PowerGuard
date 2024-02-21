@@ -10,7 +10,11 @@ const char* INFLUXDB_ORG = "48cec24009273b5e";
 const char* INFLUXDB_BUCKET = "bucket-digitalisierung";
 
 // Other configurations
+// #define RELAY_PIN 2
+// #define SECOND_RELAY_PIN 15
 #define RELAY_PIN 2
-#define SECOND_RELAY_PIN 15
+#define SECOND_RELAY_PIN 1
+#define THIRD_RELAY_PIN 4
+#define FOURTH_RELAY_PIN 3
 
 #endif  // CONFIG_H
