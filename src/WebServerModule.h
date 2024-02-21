@@ -31,7 +31,7 @@ private:
   bool fourthRelayState;
   int _relayPin;
   int _secondRelayPin;
-  int _thirdrelayPin;
+  int _thirdRelayPin;
   int _fourthRelayPin;
   
   void handleRoot(AsyncWebServerRequest *request);
