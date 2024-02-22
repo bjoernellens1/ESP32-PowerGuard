@@ -10,7 +10,16 @@ This repository contains the source code for our university group project focuse
 - Grafana dashboard for visualizing power conditions.
 - Embedded webserver on ESP32 for real-time voltage and power readings and relay control.
 
+### Important notice:
+This code is supposed to work with all kinds of ESP32 devices (ESP32, ESP32-S1, ESP32-S2, etc.), but minor adjustments might be needed. Anyway you will need to adapt the pin numbering to your board.
+We successfully tested the following devices:
+- AZ Delivery ESP-32 Dev Kit C V4
+- ESP32-S2-Saola-1
+
+The relay module is also interchangeable with other relay modules you can buy on Amazon. The code is written in a way that it should be easy to adapt to other modules. Here it is important to add that this code is written for active-low relay modules.
+
 ### Quick start
+0. ! Before connecting the ESP via USB, make sure to unplug the additional 5V power converter we use in this project. This is necessary to prevent overpowering the Computer's USB port.
 1. Spin up InfluxDb and Grafana via Docker Compose:
 
     ```shell
@@ -32,8 +41,8 @@ This repository contains the source code for our university group project focuse
 - `doc`: Here you will find the schematics and the project documentation.
 
 ### Hardware needed:
-- ESP32 Devkit C (or derivative)
-- Relay Module board with 2x Relays
+- ESP32-S2-Saola-1 (or derivative)
+- Relay Module board with 4x Relays (or whatever you like)
 - INA219 Power Monitoring Module
 - Computer/Server for hosting the Database and Grafana.
 The code was written using the PlatformIO plugin for Visual Studio Code. You are advised to use the same setup.
@@ -65,7 +74,7 @@ On the welcome page you will see the Ardino setup tutorial. Click on the 'Arduin
 #### Hardware Setup
 Connect the INA219 module according to the schematics. 
 Connect the relay module to the ESP32. The relay module should be connected to the pins GPIO2 and GPIO15 of the ESP32. The relay module should be powered by an external power supply. The relay module should be connected to the power circuit you want to monitor and control. The INA219 module should be connected to the power circuit you want to monitor. The INA219 module should be powered by the ESP32.
-![Pinout Diagram ESP32 Devkit C v4](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_images/esp32-devkitC-v4-pinout.png)
+![Pinout Diagram ESP32-S2-Saola-1](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/_images/esp32-s2_saola1-pinout.jpg)
 ![Schematics - Wiring](resources/wiring.png)
 
 
@@ -82,6 +91,10 @@ INFLUXDB_URL = "http://192.168.1.100:8086"
 ```
 
  WIFI_SSID and WIFI_PASS are your WiFi credentials.
+
+Make sure the correct environment is selected for the project. The default is the ESP32-S2-Saola-1. You can change the environment in the bottom bar of Visual Studio Code.
+
+![Environment selectorS](resources/environment.png)
  
 
 Now you can click on the upload button to flash the ESP.

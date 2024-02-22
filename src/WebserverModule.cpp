@@ -108,15 +108,6 @@ void WebServerModule::handleRoot(AsyncWebServerRequest *request) {
   html += "<p>Leistung: <span id='power_W'></span> W</p>";
   html += "<p>Durchschnittliche Leistung: <span id='avgPower_W'></span> W</p>";
   html += "<p>Gesamtenergie: <span id='totalEnergy'></span> Wh</p>";
-  // // JavaScript-Code für die Werteaktualisierung und Schaltersteuerung (unchanged)
-  // html += "<script>setInterval(updateValues, 5000);";
-  // html += "function updateValues() { fetch('/values').then(response => response.json()).then(data => {";
-  // html += "document.getElementById('current_A').textContent = data.current_A;";
-  // html += "document.getElementById('busVoltage_V').textContent = data.busVoltage_V;";
-  // html += "document.getElementById('power_W').textContent = data.power_W;";
-  // html += "document.getElementById('avgPower_W').textContent = data.avgPower_W;";
-  // html += "document.getElementById('totalEnergy').textContent = data.totalEnergy;";
-  // html += "}); }</script>";
 
   // JavaScript-Code für die Werteaktualisierung und Schaltersteuerung
   html += "<script>setInterval(updateValues, 1000);"; // Update values every second
@@ -191,12 +182,6 @@ void WebServerModule::handleRoot(AsyncWebServerRequest *request) {
 }
 
 void WebServerModule::handleValues(AsyncWebServerRequest *request) {
-  // String values = "{\"current_A\":" + String(_inaModule.getCurrent()) + ",";
-  // values += "\"busVoltage_V\":" + String(_inaModule.getBusVoltage()) + ",";
-  // values += "\"power_W\":" + String(_inaModule.getPower()) + ",";
-  // values += "\"avgPower_W\":" + String(_inaModule.calculateAveragePower()) + ",";
-  // values += "\"totalEnergy\":" + String(_inaModule.getTotalEnergy()) + "}";
-
   String values = "{\"current_A\":" + String(_inaModule.getCurrent()) + ",";
   values += "\"busVoltage_V\":" + String(_inaModule.getBusVoltage()) + ",";
   values += "\"power_W\":" + String(_inaModule.getPower()) + ",";
